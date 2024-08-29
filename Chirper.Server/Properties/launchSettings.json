@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Chirper.Server": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

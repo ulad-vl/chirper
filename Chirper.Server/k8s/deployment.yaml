@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chirperserver-deployment
+  namespace: chirper-ns
+  labels:
+    app: web
+    env: dev
+    managed-by: Helm
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      app: web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: web
+        env: dev
+    spec:
+      containers:
+      - name: chirper
+        image: tngvlad/chirperserver
+        ports:
+          - containerPort : 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
