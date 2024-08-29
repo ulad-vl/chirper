@@ -23,10 +23,10 @@ spec:
       - name: chirper
         image: tngvlad/chirperserver
         ports:
-          - containerPort : 80
+          - containerPort : 8080
         livenessProbe:
           httpGet:
             path: /
-            port: 80
+            port: 8080
           initialDelaySeconds: 5
           periodSeconds: 5
