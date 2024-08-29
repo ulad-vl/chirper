@@ -8,7 +8,7 @@ spec:
     app: web
     env: dev
   ports:
-      name: http
+    - name: http
       port: 80
       targetPort: 8080
   type: ClusterIP
