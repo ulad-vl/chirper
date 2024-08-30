@@ -22,6 +22,8 @@ spec:
       containers:
       - name: chirper
         image: tngvlad/chirperserver
+	imagePullSecrets: 
+	- name: dockerhub-secret
         ports:
           - containerPort : 8080
         livenessProbe:
