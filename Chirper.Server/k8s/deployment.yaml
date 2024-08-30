@@ -19,11 +19,11 @@ spec:
         app: web
         env: dev
     spec:
+      imagePullSecrets: 
+      - name: dockerhub-secret
       containers:
       - name: chirper
         image: tngvlad/chirperserver
-	imagePullSecrets: 
-	- name: dockerhub-secret
         ports:
           - containerPort : 8080
         livenessProbe:
