@@ -6,7 +6,6 @@ metadata:
   labels:
     app: web
     env: dev
-    managed-by: Helm
     version: v1
 spec:
   selector:
