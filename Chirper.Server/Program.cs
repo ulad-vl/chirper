@@ -16,7 +16,4 @@ var builder = Host.CreateDefaultBuilder(args)
             })
             );
 
-//var app = builder.Build();
-//await app.RunAsync();
-
 await builder.RunConsoleAsync();
