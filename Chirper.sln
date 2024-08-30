@@ -19,6 +19,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cicd", "cicd", "{01DAA191-0C3E-4C2D-AA86-44DD1D6EE631}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\build.yml = .github\workflows\build.yml
+		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
 Global
