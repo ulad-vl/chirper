@@ -31,10 +31,10 @@ jobs:
           tags: tngvlad/chirperserver:${{ github.run_id }}
 
       - 
-      name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
+        name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       
       - 
         name: Update version in deployment.yaml
