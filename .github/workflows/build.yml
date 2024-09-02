@@ -27,8 +27,7 @@ jobs:
         name: Get build version
         id: get_version
         run: |
-            VERSION=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:6.0.0-beta.3-alpine.3.16-6.0 /repo /showvariable MajorMinorPatch).${{ github.run_id }}
-            echo "VERSION=$VERSION" >> $GITHUB_ENV          
+            VERSION=$(docker run --rm -v "$(pwd):/repo" mcr.microsoft.com/dotnet/sdk:8.0 sh -c "dotnet tool install -g GitVersion.Tool && export PATH=\$PATH:/root/.dotnet/tools && gitversion /repo /showvariable MajorMinorPatch").${{ github.run_id }}          
       -
         name: Build and push
         uses: docker/build-push-action@v4
