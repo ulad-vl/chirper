@@ -23,36 +23,23 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - 
-        name: Install GitVersion
-        run: |
-          dotnet tool install -g GitVersion.Tool
-          echo "/root/.dotnet/tools" >> $GITHUB_PATH
-
-      - 
-        name: Get build version
-        id: get_version
-        run: |
-          VERSION=$(dotnet-gitversion /showvariable MajorMinorPatch).${{ github.run_id }}
-          echo "VERSION=$VERSION" >> $GITHUB_ENV      
-
       -
         name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: tngvlad/chirperserver:${{ env.VERSION }}
+          tags: tngvlad/chirperserver:${{ github.run_id }}
 
       - 
         name: Update version in deployment.yaml
         run: |
-            sed -i 's/version: v[0-9.]*/version: v${{ env.VERSION }}/' Chirper.Server/k8s/deployment.yaml
+            sed -i 's/version: v[0-9.]*/version: v${{ github.run_id }}/' Chirper.Server/k8s/deployment.yaml
 
       - 
         name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Update version to ${{ env.VERSION }}
+          commit_message: Update version to ${{ github.run_id }}
           branch: main
           file_pattern: |
             Chirper.Server/k8s/deployment.yaml          
