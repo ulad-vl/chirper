@@ -25,10 +25,10 @@ jobs:
 
       - 
         name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0.9
-        with:
-          versionSpec: '5.x'
-
+        run: |
+          dotnet tool install -g GitVersion.Tool
+          echo "::add-path::$(dotnet tool list -g | grep GitVersion.Tool | awk '{print $3}')"
+          
       - 
         name: Get build version
         id: get_version
