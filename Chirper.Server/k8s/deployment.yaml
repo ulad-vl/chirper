@@ -6,7 +6,7 @@ metadata:
   labels:
     app: web
     env: dev
-    version: v1
+    version: v10673100403
 spec:
   selector:
     matchLabels:
