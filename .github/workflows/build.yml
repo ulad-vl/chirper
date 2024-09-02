@@ -33,7 +33,8 @@ jobs:
       - 
         name: Update version in deployment.yaml
         run: |
-            sed -i 's/version: v[0-9.]*/version: v${{ github.run_id }}/' ././Chirper.Server/k8s/deployment.yaml
+            ls -la .
+            sed -i 's/version: v[0-9.]*/version: v${{ github.run_id }}/' Chirper.Server/k8s/deployment.yaml
 
       - 
         name: Commit and push changes
