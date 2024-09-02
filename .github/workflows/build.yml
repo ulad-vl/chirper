@@ -30,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: tngvlad/chirperserver:latest
+          tags: tngvlad/chirperserver:${{ github.run_id }}
 
       - 
         name: Checkout repository
@@ -42,6 +42,7 @@ jobs:
         name: Update version in deployment.yaml
         run: |
             sed -i 's/version: v[0-9.]*/version: v${{ github.run_id }}/' Chirper.Server/k8s/deployment.yaml
+            sed -i 's/image: tngvlad/chirperserver:[0-9a-z.]*/image: tngvlad/chirperserver:${{ github.run_id }}/' Chirper.Server/k8s/deployment.yaml
 
       - 
         name: Commit and push changes
