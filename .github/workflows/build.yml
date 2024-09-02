@@ -49,4 +49,6 @@ jobs:
           commit_message: Update version to ${{ github.run_id }}
           branch: main
           file_pattern: |
-            ././Chirper.Server/k8s/deployment.yaml          
+            Chirper.Server/k8s/deployment.yaml  
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}        
