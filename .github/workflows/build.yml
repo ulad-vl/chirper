@@ -23,11 +23,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - 
-      name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9
-      with:
-        versionSpec: '5.x'
+      - 
+        name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9
+        with:
+          versionSpec: '5.x'
 
       - 
         name: Get build version
