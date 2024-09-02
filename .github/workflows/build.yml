@@ -27,15 +27,13 @@ jobs:
         name: Install GitVersion
         run: |
           dotnet tool install -g GitVersion.Tool
-          echo "::add-path::$(dotnet tool list -g | grep GitVersion.Tool | awk '{print $3}')"
-          
+          echo "/root/.dotnet/tools" >> $GITHUB_PATH
+
       - 
         name: Get build version
         id: get_version
         run: |
-          dotnet tool install -g GitVersion.Tool
-          export PATH=$PATH:/root/.dotnet/tools
-          VERSION=$(gitversion /showvariable MajorMinorPatch).${{ github.run_id }}
+          VERSION=$(dotnet-gitversion /showvariable MajorMinorPatch).${{ github.run_id }}
           echo "VERSION=$VERSION" >> $GITHUB_ENV      
 
       -
