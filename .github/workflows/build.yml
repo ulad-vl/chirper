@@ -39,7 +39,6 @@ jobs:
       - 
         name: Update version in deployment.yaml
         run: |
-            ls -la .
             sed -i 's/version: v[0-9.]*/version: v${{ github.run_id }}/' Chirper.Server/k8s/deployment.yaml
 
       - 
@@ -51,4 +50,8 @@ jobs:
           file_pattern: |
             Chirper.Server/k8s/deployment.yaml  
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}        
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}    
+          GIT_AUTHOR_NAME: 'ulad-vl'
+          GIT_AUTHOR_EMAIL: 'vlhardy@gmail.com'
+          GIT_COMMITTER_NAME: 'ulad-vl'
+          GIT_COMMITTER_EMAIL: 'vlhardy@gmail.com'
