@@ -6,7 +6,7 @@ metadata:
   labels:
     app: web
     env: dev
-    version: v10738925974
+    version: v10739542975
 spec:
   selector:
     matchLabels:
@@ -22,7 +22,7 @@ spec:
       - name: dockerhub-secret
       containers:
       - name: chirper
-        image: tngvlad/chirperserver:10738925974
+        image: tngvlad/chirperserver:10739542975
         ports:
           - containerPort : 8080
         livenessProbe:
