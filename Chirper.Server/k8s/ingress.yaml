@@ -4,6 +4,7 @@ metadata:
   name: chirper-server-ingress
   namespace: chirper-ns  
   annotations:
+    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /  
 spec:
   rules:
