@@ -52,3 +52,6 @@ jobs:
           branch: main
           file_pattern: |
             Chirper.Server/k8s/deployment.yaml
+        env:
+          GIT_AUTHOR_NAME: 'GH Pipeline'
+          GIT_COMMITTER_NAME: 'Pipeline'
