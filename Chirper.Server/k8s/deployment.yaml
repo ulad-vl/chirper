@@ -4,18 +4,20 @@ metadata:
   name: chirperserver-deployment
   namespace: chirper-ns
   labels:
-    app: web
+    app: chirper-silo
     env: dev
     version: v10740617061
 spec:
   selector:
     matchLabels:
-      app: web
+      app: chirper-silo
   replicas: 1
   template:
     metadata:
       labels:
-        app: web
+        app: chirper-silo
+        orleans/serviceId: chirper-service
+        orleans/clusterId: chirper-cluster
         env: dev
     spec:
       imagePullSecrets: 
@@ -24,7 +26,24 @@ spec:
       - name: chirper
         image: tngvlad/chirperserver:10740617061
         ports:
-          - containerPort : 8080
+          - containerPort: 8080
+          - containerPort: 11111
+          - containerPort: 30000
+        env:
+          - name: STORAGE_CONNECTION_STRING
+            value: "UseDevelopmentStorage=true;"
+          - name: ORLEANS_SERVICE_ID
+            value: "chirper-service"
+          - name: ORLEANS_CLUSTER_ID
+            value: "chirper-cluster"
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
         livenessProbe:
           httpGet:
             path: /

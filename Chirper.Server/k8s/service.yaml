@@ -5,10 +5,19 @@ metadata:
   namespace : chirper-ns
 spec:
   selector:
-    app: web
+    app: chirper-silo
     env: dev
   ports:
-    - name: http
-      port: 80
+    - port: 11111
+      targetPort: 11111
+      protocol: TCP
+      name: silo
+    - port: 30000
+      targetPort: 30000
+      protocol: TCP
+      name: gateway
+    - port: 8080
       targetPort: 8080
+      protocol: TCP
+      name: dashboard
   type: ClusterIP
