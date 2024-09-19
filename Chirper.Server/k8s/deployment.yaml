@@ -8,7 +8,7 @@ metadata:
   labels:
     app: chirper-silo
     env: dev
-    version: v10947948435
+    version: v10948171431
 spec:
   hostNetwork: true
   selector:
@@ -27,7 +27,7 @@ spec:
       - name: dockerhub-secret
       containers:
       - name: chirper
-        image: tngvlad/chirperserver:10947948435
+        image: tngvlad/chirperserver:10948171431
         ports:
           - containerPort: 8080
           - containerPort: 11111
