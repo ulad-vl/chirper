@@ -7,14 +7,16 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Azure.Data.Tables" Version="12.9.0" />
+    <PackageReference Include="Azure.Data.Tables" Version="12.9.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
     <PackageReference Include="Microsoft.Orleans.Clustering.AzureStorage" Version="8.2.0" />
     <PackageReference Include="Microsoft.Orleans.Core" Version="8.2.0" />
+    <PackageReference Include="Microsoft.Orleans.Hosting.Kubernetes" Version="8.2.0" />
     <PackageReference Include="Microsoft.Orleans.Persistence.AzureStorage" Version="8.2.0" />
     <PackageReference Include="Microsoft.Orleans.Runtime" Version="8.2.0" />
     <PackageReference Include="Microsoft.Orleans.Server" Version="8.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="Orleans.Clustering.Kubernetes" Version="8.0.2" />
     <PackageReference Include="OrleansDashboard" Version="8.2.0" />
   </ItemGroup>
   <ItemGroup>
