@@ -12,7 +12,7 @@ await new HostBuilder()
     {
         clientBuilder.UseAzureStorageClustering(options =>
                     {
-                        options.TableServiceClient = new TableServiceClient("AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=http;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;");
+                        options.TableServiceClient = new TableServiceClient("AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=http;BlobEndpoint=http://192.168.0.16:10000/devstoreaccount1;QueueEndpoint=http://192.168.0.16:10001/devstoreaccount1;TableEndpoint=http://192.168.0.16:10002/devstoreaccount1;");
                     })
                     .Configure<ClusterOptions>(options =>
                     {
