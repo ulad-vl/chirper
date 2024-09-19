@@ -8,6 +8,7 @@ metadata:
     env: dev
     version: v10947837186
 spec:
+  hostNetwork: true
   selector:
     matchLabels:
       app: chirper-silo
