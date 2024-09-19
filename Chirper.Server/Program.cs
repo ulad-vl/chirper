@@ -13,7 +13,7 @@ var builder = Host.CreateDefaultBuilder(args)
         siloBuilder
             .UseAzureStorageClustering(options =>
             {
-                options.TableServiceClient = new TableServiceClient("UseDevelopmentStorage=true;");
+                options.TableServiceClient = new TableServiceClient("AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=http;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;");
                 //options.TableName = "ClusterMembershipTable";
             })
             .Configure<ClusterOptions>(options =>
@@ -24,7 +24,7 @@ var builder = Host.CreateDefaultBuilder(args)
             .ConfigureEndpoints(siloPort: 11111, gatewayPort: 30000)
             .AddAzureTableGrainStorage("AccountState", options =>
             {
-                options.TableServiceClient = new TableServiceClient("UseDevelopmentStorage=true;");
+                options.TableServiceClient = new TableServiceClient("AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=http;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;");
                 options.TableName = "AccountState";
             })
             .UseDashboard(options =>
