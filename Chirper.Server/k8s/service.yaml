@@ -6,7 +6,6 @@ metadata:
 spec:
   selector:
     app: chirper-silo
-    env: dev
   ports:
     - port: 8080
       targetPort: 8080
