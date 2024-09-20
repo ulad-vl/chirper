@@ -18,7 +18,6 @@ spec:
         orleans/serviceId: chirper-service
         orleans/clusterId: chirper-cluster
     spec:
-      minReadySeconds: 60
       imagePullSecrets: 
       - name: dockerhub-secret
       containers:
