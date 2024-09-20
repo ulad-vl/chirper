@@ -59,8 +59,6 @@ spec:
             value: "devstoreaccount1"
           - name: AZURE_STORAGE_ACCOUNT_KEY
             value: "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="  
-          - name: AZURE_STORAGE_CLUSTERING_TABLE
-            value: "OrleansSiloInstances"
           - name: AZURE_STORAGE_STATUS_TABLE
             value: "AccountState"
           - name: AZURE_STORAGE_TABLE_ENDPOINT
