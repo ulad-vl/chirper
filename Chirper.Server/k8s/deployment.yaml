@@ -63,6 +63,8 @@ spec:
             value: "OrleansSiloInstances"
           - name: AZURE_STORAGE_STATUS_TABLE
             value: "AccountState"
+          - name: AZURE_STORAGE_TABLE_ENDPOINT
+            value: "http://192.168.0.16:10002"
         livenessProbe:
           httpGet:
             path: /
