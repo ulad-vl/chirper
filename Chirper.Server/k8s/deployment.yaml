@@ -32,7 +32,7 @@ spec:
           - containerPort: 11111
           - containerPort: 30000
           - containerPort: 443
-          env:
+        env:
           - name: ORLEANS_SERVICE_ID
             valueFrom: 
               fieldRef: 
