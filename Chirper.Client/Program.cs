@@ -16,16 +16,11 @@ await new HostBuilder()
                         options.TableServiceClient = new TableServiceClient("AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=http;BlobEndpoint=http://192.168.0.16:10000/devstoreaccount1;QueueEndpoint=http://192.168.0.16:10001/devstoreaccount1;TableEndpoint=http://192.168.0.16:10002/devstoreaccount1;");
                         options.TableName = "ClusterMembershipTable";
                     })
-                    .UseStaticClustering(options =>
-                    {
-                        options.Gateways.Add(new IPEndPoint(IPAddress.Parse("192.168.0.16"), 32000));  // Gateway port
-                    })
                     .Configure<ClusterOptions>(options =>
                     {
                         options.ClusterId = "chirper-cluster";
                         options.ServiceId = "chirper-service";
-                    })
-                    ;
+                    });
     })
     .ConfigureServices(
         services => services
